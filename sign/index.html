@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<title>NextSense</title>
+    <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
+	<style type="text/css" media="screen">
+	@import url('https://fonts.googleapis.com/css?family=Spectral+SC');
+	html, body {
+	    width: 100%;
+	    height: 100%;
+	    padding: 0;
+	    margin: 0;
+	}
+	.centered-wrapper {
+	    position: relative;
+	    text-align: center;
+		background-color: #000D1A;
+	}
+	.centered-wrapper:before {
+	    content: "";
+	    position: relative;
+	    display: inline-block;
+	    width: 0; height: 100%;
+	    vertical-align: middle;
+	}
+	.centered-content {
+		width: 55%;
+	    display: inline-block;
+	    vertical-align: middle;
+	}
+	.download {
+		border: #FFFFFF;
+		border-style: solid;
+		border-width: 2pt;
+		margin: 5pt;
+	}
+	.logo {
+		width: 50pt;
+		height: 50pt;
+		margin-right: 25pt;
+	}
+	.link {
+		text-decoration: none;
+	}
+	.label {
+		font-size: 65pt;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: 'Spectral SC', serif;
+	}
+	.label-small {
+		font-size: 20pt;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: 'Spectral SC', serif;
+		margin: 5pt;
+	}	
+	.label-footer {
+		font-size:17pt;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: 'Spectral SC', serif;
+		margin: 5pt;
+	}	
+	.footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		color: white;
+		text-align: center;
+	}
+	</style>
+
+	<body class="centered-wrapper">
+		<div class="centered-content">
+			<div id="iOS" class="download">
+				<a class="link" href="">
+					<p class="label">
+						<img class="logo" src="apple.png">
+						NEXTSENSE
+					</p>
+				</a>
+			</div>
+			<div id="Android" class="download">
+				<a class="link" href="NextSense.apk">
+					<p class="label">
+						<img class="logo" src="android.png">
+						NEXTSENSE
+					</p>
+				</a>
+			</div>
+			<div id="showAll" class="download" onclick="showAll()">
+				<a class="link label-small">
+					SHOW ALL PLATFORMS
+				</a>
+			</div>
+		</div>
+		<div class="footer">
+			<p id="Version" class="label-footer">
+				NOTE: Currently only supports Android.
+			</p>
+		</div>
+	</body>
+
+	<script>
+		function showAll(){
+				document.getElementById('Android').hidden = false;
+				document.getElementById('iOS').hidden = false;
+				document.getElementById('showAll').hidden = true;
+		}
+		jQuery(document).ready(function ($){
+			if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) {
+				document.getElementById('Android').hidden = true;
+				document.getElementById('iOS').hidden = false;
+				document.getElementById('showAll').hidden = false;
+			}
+			else if (navigator.userAgent.match(/Android/i)){
+				document.getElementById('Android').hidden = false;
+				document.getElementById('iOS').hidden = true;
+				document.getElementById('showAll').hidden = false;
+			}
+			else {
+				document.getElementById('Android').hidden = false;
+				document.getElementById('iOS').hidden = false;
+				document.getElementById('showAll').hidden = true;
+			}
+		});
+	</script>
+</html>
